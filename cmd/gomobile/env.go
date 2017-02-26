@@ -89,6 +89,8 @@ func buildEnvInit() (cleanup func(), err error) {
 			return nil, errors.New("toolchain partially installed, run `gomobile init`")
 		}
 		if !bytes.Equal(installedVersion, goVersionOut) {
+			fmt.Printf("Installed version %s", installedVersion)
+			fmt.Printf("Go version out %s", goVersionOut)
 			return nil, errors.New("toolchain out of date, run `gomobile init`")
 		}
 
